@@ -23,6 +23,7 @@ module.exports = {
             image:fileName,
         });
         fs.unlinkSync(req.file.path);
+        req.io.emit('newPost', post);
         return res.json(post);
     }
 };
